@@ -1,22 +1,34 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Montserrat, Poppins } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["italic", "normal"],
+  variable: "--font-poppins",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["italic", "normal"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
-  title: 'Pepe Online Shop',
-  description: 'E-commerce with Next.js and Taiwild.css',
-}
+  title: "Pepe Online Shop",
+  description: "E-commerce with Next.js and Taiwild.css",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${poppins.variable} ${montserrat.variable}`}>
+      <body>{children}</body>
     </html>
-  )
+  );
 }
